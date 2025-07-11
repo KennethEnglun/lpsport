@@ -1,13 +1,15 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #1A1A1A;
+  color: #FFFF00;
+  font-family: 'Courier New', monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.neon-text {
+  text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000;
 }
+
+.neon-button {
+  background: #00FF00;
+  box-shadow: 0 0 10px #00FF00;
+  border: 2px solid #FFFF00;
+} 
