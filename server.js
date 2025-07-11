@@ -899,8 +899,13 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+// 初始化數據庫
+initDb();
+
 app.listen(PORT, HOST, () => {
   console.log(`伺服器運行於 http://${HOST}:${PORT}`);
   console.log(`環境: ${process.env.NODE_ENV || 'development'}`);
   console.log(`數據庫: ${usePostgres ? 'PostgreSQL' : 'SQLite'}`);
+  console.log(`PORT環境變量: ${process.env.PORT}`);
+  console.log(`NODE_ENV環境變量: ${process.env.NODE_ENV}`);
 }); 
