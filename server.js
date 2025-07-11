@@ -38,9 +38,24 @@ if (process.env.NODE_ENV === 'production') {
 // 初始化資料庫（省略詳細，基於需求）
 async function initDb() {
   // 創建表和預設資料
+  console.log('Database initialized');
 }
 
 initDb();
+
+// 根路徑
+app.get('/', (req, res) => {
+  res.json({ message: 'LP ESports Stadium API is running' });
+});
+
+// 測試API端點
+app.get('/api/classes', (req, res) => {
+  res.json([
+    { id: 1, name: '高一甲' },
+    { id: 2, name: '高一乙' },
+    { id: 3, name: '高二甲' }
+  ]);
+});
 
 // Admin登入（簡單JWT）
 app.post('/api/admin/login', async (req, res) => {
