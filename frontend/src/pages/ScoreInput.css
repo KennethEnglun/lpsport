@@ -1,0 +1,245 @@
+.score-input {
+  min-height: 100vh;
+  padding: 2rem;
+  background: 
+    radial-gradient(circle at 40% 60%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+}
+
+.score-input-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+  margin-bottom: 2rem;
+  animation: neonGlow 3s ease-in-out infinite alternate;
+}
+
+.score-form {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-group select,
+.form-group input[type="text"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  color: #00ffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group select:hover,
+.form-group select:focus,
+.form-group input:hover,
+.form-group input:focus {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  outline: none;
+}
+
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  color: #00ffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="file"]:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.student-info {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.student-info h3 {
+  color: #00ffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.student-info p {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.time-input {
+  margin-bottom: 1.5rem;
+}
+
+.time-input label {
+  display: block;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.time-fields {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.time-fields input {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  color: #00ffff;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.time-fields span {
+  color: #00ffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.photo-preview {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.photo-preview img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  color: #00ffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.message.success {
+  background: rgba(0, 255, 0, 0.1);
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.message.error {
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .score-form {
+    padding: 1.5rem;
+  }
+  
+  .time-fields {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .time-fields span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .score-input {
+    padding: 1rem;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+  }
+  
+  .score-form {
+    padding: 1rem;
+  }
+  
+  .form-group select,
+  .form-group input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .submit-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+} 

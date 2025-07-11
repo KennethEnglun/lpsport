@@ -1,0 +1,211 @@
+.leaderboard {
+  min-height: 100vh;
+  padding: 2rem;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+}
+
+.leaderboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+  margin-bottom: 2rem;
+  animation: neonGlow 3s ease-in-out infinite alternate;
+}
+
+.filters {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filter-group select {
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  color: #00ffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:hover,
+.filter-group select:focus {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  outline: none;
+}
+
+.leaderboard-table {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.leaderboard-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.leaderboard-table th {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.leaderboard-table tr.top-five {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.rank {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #00ffff;
+  position: relative;
+}
+
+.medal {
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.medal.gold {
+  color: #ffd700;
+}
+
+.medal.silver {
+  color: #c0c0c0;
+}
+
+.medal.bronze {
+  color: #cd7f32;
+}
+
+.student-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.no-photo {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #666;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #666;
+  margin: 0 auto;
+}
+
+.name {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.time {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.no-data {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .leaderboard-table {
+    overflow-x: auto;
+  }
+  
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .student-photo,
+  .no-photo {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leaderboard {
+    padding: 1rem;
+  }
+  
+  .page-title {
+    font-size: 1.5rem;
+  }
+  
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+  
+  .student-photo,
+  .no-photo {
+    width: 30px;
+    height: 30px;
+  }
+} 
