@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './ScoreInput.css';
 import { API_BASE_URL } from '../config';
 
@@ -45,6 +45,7 @@ const ScoreInput: React.FC = () => {
     } else {
       setSelectedStudent(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedClass, studentNumber]);
 
   const fetchData = async () => {
@@ -64,7 +65,7 @@ const ScoreInput: React.FC = () => {
     }
   };
 
-  const findStudent = async () => {
+  const findStudent = useCallback(async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/students/search?class_id=${selectedClass}&student_number=${studentNumber}`);
       if (response.ok) {
@@ -77,7 +78,7 @@ const ScoreInput: React.FC = () => {
       console.error('Error finding student:', error);
       setSelectedStudent(null);
     }
-  };
+  }, [selectedClass, studentNumber]);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Leaderboard.css';
 import { API_BASE_URL } from '../config';
-
-interface Student {
-  id: number;
-  name_zh: string;
-  name_en: string;
-  student_number: string;
-  class_name: string;
-}
 
 interface Sport {
   id: number;
@@ -42,14 +34,6 @@ const Leaderboard: React.FC = () => {
   const [selectedClass, setSelectedClass] = useState<string>('');
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    fetchLeaderboard();
-  }, [selectedSport, selectedClass]);
-
   const fetchData = async () => {
     try {
       const [sportsRes, classesRes] = await Promise.all([
@@ -69,7 +53,7 @@ const Leaderboard: React.FC = () => {
     }
   };
 
-  const fetchLeaderboard = async () => {
+  const fetchLeaderboard = useCallback(async () => {
     try {
       const params = new URLSearchParams();
       if (selectedSport) params.append('sport_id', selectedSport);
@@ -81,7 +65,15 @@ const Leaderboard: React.FC = () => {
     } catch (error) {
       console.error('Error fetching leaderboard:', error);
     }
-  };
+  }, [selectedSport, selectedClass]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    fetchLeaderboard();
+  }, [fetchLeaderboard]);
 
   const formatTime = (min: number, sec: number) => {
     return `${min}:${sec.toString().padStart(2, '0')}`;
