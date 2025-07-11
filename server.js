@@ -4,6 +4,13 @@ const path = require('path');
 const multer = require('multer');
 require('dotenv').config();
 
+process.on('uncaughtException', err => {
+  console.error('Uncaught Exception:', err);
+});
+process.on('unhandledRejection', err => {
+  console.error('Unhandled Rejection:', err);
+});
+
 // 数据库配置
 const usePostgres = process.env.NODE_ENV === 'production' || process.env.DATABASE_URL;
 let db;
@@ -285,18 +292,17 @@ app.get('/', (req, res) => {
 // 取得所有班別
 app.get('/api/classes', async (req, res) => {
   try {
-    if (usePostgres) {
-      const result = await db.query('SELECT * FROM classes ORDER BY id');
-      res.json(result.rows);
-    } else {
-      db.all('SELECT * FROM classes', [], (err, rows) => {
-        if (err) {
-          return res.status(500).json({ error: err.message });
-        }
-        res.json(rows);
-      });
-    }
+    const result = usePostgres
+      ? await db.query('SELECT * FROM classes')
+      : await new Promise((resolve, reject) => {
+          db.all('SELECT * FROM classes', [], (err, rows) => {
+            if (err) reject(err);
+            else resolve(rows);
+          });
+        });
+    res.json(usePostgres ? result.rows : result);
   } catch (error) {
+    console.error('API /api/classes error:', error);
     res.status(500).json({ error: error.message });
   }
 });
