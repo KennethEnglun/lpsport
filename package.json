@@ -1,0 +1,33 @@
+{
+  "name": "lpsport-railway",
+  "version": "1.0.0",
+  "description": "LP ESports Stadium - Railway Deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm start --prefix frontend\"",
+    "postinstall": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.1",
+    "passport": "^0.7.0",
+    "passport-azure-ad": "^4.3.5",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": ["sports", "railway", "deployment"],
+  "author": "",
+  "license": "ISC"
+} 
